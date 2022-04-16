@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
-import Typical from "react-typical"
+import Typical from "react-typical";
+import axios from 'axios';
+import {toast} from 'react-toastify';
 
 import './ContactMe.css';
 import imgBack from "../../../src/images/mailz.jpeg";
@@ -35,6 +37,35 @@ function ContactMe(props) {
       const handleMessage = (e) => {
         setMessage(e.target.value);
       };
+
+      const submitForm = async (e) => {
+        e.preventDefault();
+
+        try {
+          let data = {
+            name,
+            email,
+            message
+          };
+
+          setBoolean(true);
+          const res = await axios.post(`/contact`, data);
+          if(name.length === 0 || email.length === 0 || message.length === 0){
+            setBanner(res.data.msg);
+            toast.error(res.data.msg);
+            setBoolean(false);
+          }else if(res.status === 200){
+            setBanner(res.data.msg);
+            toast.success(res.data.msg);
+            setBoolean(false);
+          }
+
+        } catch (error) {
+          console.log(error);
+        }
+       
+        
+      }
   return (
     <div className="main-container" id={props.id || ""}>
         <ScreenHeading
@@ -75,7 +106,7 @@ function ContactMe(props) {
                  <h4>Send Your Email Here!</h4>
                  <img src={imgBack} alt="image not found.." />
                  </div>
-                 <form>
+                 <form onSubmit={submitForm}>
                      <p>{banner}</p>
                      <label htmlFor="name">Name</label>
             <input type="text" onChange={handleName} value={name} />
@@ -87,8 +118,11 @@ function ContactMe(props) {
             <textarea type="text" onChange={handleMessage} value={message} />
 
                      <div class="send-btn">
-                         <button type="submit">
+                         <button  type="submit">
                             send<i class="fa fa-paper-plane" />
+                            {boolean ? (<b className="load">
+                              <img src={load1} alt="img not responding" />
+                            </b>) : ("")}
                          </button>
                      </div>
                  </form>
