@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import Typical from "react-typical";
-import axios from 'axios';
+// import axios from 'axios';
 import {toast} from 'react-toastify';
-
 import './ContactMe.css';
+import emailjs from "emailjs-com";
 import imgBack from "../../../src/images/mailz.jpeg";
 import load1 from "../../../src/images/load2.gif";
 import ScreenHeading from '../../utilities/ScreenHeading/ScreenHeading';
@@ -38,38 +38,50 @@ function ContactMe(props) {
         setMessage(e.target.value);
       };
 
-      const submitForm = async (e) => {
+      const sendEmail = (e) => {
         e.preventDefault();
 
-        try {
-          let data = {
-            name,
-            email,
-            message
-          };
+        emailjs.sendForm('portfolio_service', 'contact_me', e.target, 'Evtmb-q7Qv4UDGjG-')
+          .then((result) => {
+              console.log(result.text);
+          }, (error) => {
+              console.log(error.text);
+          });
+          e.target.reset();
+      };
 
-          setBoolean(true);
-          const res = await axios.post(`/contact`, data);
-          if(name.length === 0 || email.length === 0 || message.length === 0){
-            setBanner(res.data.msg);
-            toast.error(res.data.msg);
-            setBoolean(false);
-          }else if(res.status === 200){
-            setBanner(res.data.msg);
-            toast.success(res.data.msg);
-            setBoolean(false);
+      // const submitForm = async (e) => {
+      //   e.preventDefault();
 
-            setName("")
-            setEmail("")
-            setMessage("")
-          }
+      //   try {
+      //     let data = {
+      //       name,
+      //       email,
+      //       message
+      //     };
 
-        } catch (error) {
-          console.log(error);
-        }
+      //     setBoolean(true);
+      //     const res = await axios.post(`/contact`, data);
+      //     if(name.length === 0 || email.length === 0 || message.length === 0){
+      //       setBanner(res.data.msg);
+      //       toast.error(res.data.msg);
+      //       setBoolean(false);
+      //     }else if(res.status === 200){
+      //       setBanner(res.data.msg);
+      //       toast.success(res.data.msg);
+      //       setBoolean(false);
+
+      //       setName("")
+      //       setEmail("")
+      //       setMessage("")
+      //     }
+
+      //   } catch (error) {
+      //     console.log(error);
+      //   }
        
         
-      }
+      // }
   return (
     <div className="main-container fade-in" id={props.id || ""}>
         <ScreenHeading
@@ -110,16 +122,16 @@ function ContactMe(props) {
                  <h4>Send Your Email Here!</h4>
                  <img src={imgBack} alt="image not found.." />
                  </div>
-                 <form onSubmit={submitForm}>
+                 <form onSubmit={sendEmail}>
                      <p>{banner}</p>
                      <label htmlFor="name">Name</label>
-            <input type="text" onChange={handleName} value={name} />
+            <input type="text" onChange={handleName} value={name} name="name" />
 
             <label htmlFor="email">Email</label>
-            <input type="email" onChange={handleEmail} value={email} />
+            <input type="email" onChange={handleEmail} name="email" value={email} />
 
             <label htmlFor="message">Message</label>
-            <textarea type="text" onChange={handleMessage} value={message} />
+            <textarea type="text" name='message' onChange={handleMessage} value={message} />
 
                      <div class="send-btn">
                          <button  type="submit">

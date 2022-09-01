@@ -60,8 +60,9 @@ const Resume = (props) => {
     { skill: "Mongo Db", ratingPercentage: 70 },
     { skill: "HTML", ratingPercentage: 80 },
     { skill: "CSS", ratingPercentage: 80 },
-    { skill: "Photography", ratingPercentage: 80 },
-    { skill: "Digital Marketing", ratingPercentage: 80 },
+    { skill: "MYSQL", ratingPercentage: 80 },
+    { skill: "PHP", ratingPercentage: 80 },
+    { skill: "Wordpress", ratingPercentage: 80 },
   ];
 
   const projectsDetails = [
@@ -72,28 +73,36 @@ const Resume = (props) => {
         "A Personal Portfolio website to showcase all my details and projects at one place.",
       subHeading: "Technologies Used: React JS, Bootsrap",
     },
+    {
+      title: "Final Year Project - Online Bus Booking system",
+      duration: { fromDate: "Jan 2022", toDate: "May 2022" },
+      description:
+        "Project that help clients/ travellors reserve seats prior their travel time remotely. The staff is also able to register scheduled buses online and number of available seats.",
+      subHeading: "Technologies Used: React JS, Material UI, MongoDB, Node js, Express Js",
+    },
   ];
 
+  // EDUCATION
   const resumeDetails = [
     <div className="resume-screen-container" key="education">
-      <ResumeHeading
-        heading={"Kirinyaga University, Kutus"}
-        subHeading={"BACHELOR OF SCIENCE COMPUTER SCIENCE"}
-        fromDate={"2018"}
+       <ResumeHeading
+        heading={"ALX AFRICA"}
+        subHeading={"Software Engineering"}
+        fromDate={"March 2022"}
         toDate={"Present"}
       />
-
+      <ResumeHeading
+        heading={"Kirinyaga University, Kutus"}
+        subHeading={"Bachelor Of Science Computer Science"}
+        fromDate={"2018"}
+        toDate={"2022"}
+      />
+     
       <ResumeHeading
         heading={"Pines Computer Center"}
         subHeading={"Computer Basics and Packages"}
         fromDate={"April 2018"}
         toDate={"June 2018"}
-      />
-      <ResumeHeading
-        heading={"High School "}
-        subHeading={"Iruma Mixed Day School"}
-        fromDate={"2014"}
-        toDate={"2017"}
       />
     </div>,
 
@@ -101,35 +110,27 @@ const Resume = (props) => {
     <div className="resume-screen-container" key="work-experience">
       <div className="experience-container">
         <ResumeHeading
-          heading={"Real-mat cyber cafe"}
-          subHeading={"CYBER ATTENDANT"}
-          fromDate={"May 2020"}
-          toDate={"Oct 2020"}
+          heading={"JoAfrica Online"}
+          subHeading={"Web Developer"}
+          fromDate={"June 2022"}
+          toDate={"Present"}
+          description="Development of https://joafrica.com/ web platform using Wordpress with the help of Astra theme. Customized the theme to meet the client needs."
         />
-        <div className="experience-description">
-          <span className="resume-description-text">
-            Responsibilities:
-          </span>
-        </div>
-        <div className="experience-description">
-          <span className="resume-description-text">
-            - Help customers with the use of computers and applications.
-          </span>
-          <br />
-          <span className="resume-description-text">
-            - Respond to customers who encounter error messages on accessing
-            sites, emailing or downloading content.{" "}
-          </span>
-          <br />
-          <span className="resume-description-text">
-            - Troubleshooting hardware, terminals, software and connectivity
-            issues.
-          </span>
-          <br />
-          <span className="resume-description-text">
-            - Assist customers with downloads, printing, and encoding.
-          </span>
-        </div>
+         <br/>
+        <ResumeHeading
+          heading={"Remote Mamagas, Gaplug"}
+          subHeading={"Web Developer"}
+          fromDate={"July 2022"}
+          description="Development of https://mamagas.co.ke/ https://gasplug.co.ke/ and web platform using Wordpress with the help of Organio theme. Customized the theme with Elementor pro to meet the client needs."
+        />
+      <br/>
+        <ResumeHeading
+          heading={"Village Hopecore International"}
+          subHeading={"IT support staff"}
+          fromDate={"July 2022"}
+          toDate={"Present"}
+          description="Offer technical support to IT related problems. Also incharge of the organisation Loan Management System."
+        />
       </div>
     </div>,
 
