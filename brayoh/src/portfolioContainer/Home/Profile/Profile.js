@@ -1,7 +1,7 @@
 import React from "react";
 import Typical from "react-typical";
 import "./profile.css";
-import ScrollService from '../../../utilities/ScrollService';
+import ScrollService from "../../../utilities/ScrollService";
 
 export default function Profile() {
   return (
@@ -19,10 +19,13 @@ export default function Profile() {
               <a href="#">
                 <i className="fa fa-twitter"></i>
               </a>
-              <a href="https://github.com/brayohmurithidev" target="_blank" >
+              <a href="https://github.com/brayohmurithidev" target="_blank">
                 <i className="fa fa-github"></i>
               </a>
-              <a href="https://www.linkedin.com/in/brian-murithi/" target="_blank">
+              <a
+                href="https://www.linkedin.com/in/brian-murithi/"
+                target="_blank"
+              >
                 <i className="fa fa-linkedin"></i>
               </a>
             </div>
@@ -55,15 +58,20 @@ export default function Profile() {
                 />
               </h1>
               <span className="profile-role-tagline">
-                 Passionate in building application with front and back end operations.
+                Passionate in building application with front and back end
+                operations.
               </span>
             </span>
           </div>
           <div className="profile-options">
-          <button className="btn primary-btn"
-            onClick={() => ScrollService.scrollHandler.scrollToHireMe()}
-            > Hire Me </button>
-            <a href="bdephaz.pdf" download="Bdephaz bdephaz.pdf">
+            <button
+              className="btn primary-btn"
+              onClick={() => ScrollService.scrollHandler.scrollToHireMe()}
+            >
+              {" "}
+              Hire Me{" "}
+            </button>
+            <a href="brian_murithi.pdf" download="Brian brian_murithi.pdf">
               <button className="btn highlighted-btn">Get Resume</button>
             </a>
           </div>
