@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import Typical from "react-typical";
-// import axios from 'axios';
 import { toast } from "react-toastify";
 import "./ContactMe.css";
-import emailjs from "emailjs-com";
 import imgBack from "../../../src/images/mailz.jpeg";
 import load1 from "../../../src/images/load2.gif";
 import ScreenHeading from "../../utilities/ScreenHeading/ScreenHeading";
