@@ -14,8 +14,9 @@ function ContactMe(props) {
     Animations.animations.fadeInScreen(props.id);
   };
 
-  const fadeInSubscription =
-    ScrollService.currentScreenFadeIn.subscribe(fadeInScreenHandler);
+  const fadeInSubscription = ScrollService.currentScreenFadeIn.subscribe(
+    fadeInScreenHandler
+  );
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -36,21 +37,21 @@ function ContactMe(props) {
   const sendEmail = (e) => {
     e.preventDefault();
 
-    emailjs
-      .sendForm(
-        "portfolio_service",
-        "contact_me",
-        e.target,
-        "Evtmb-q7Qv4UDGjG-"
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
+    // emailjs
+    //   .sendForm(
+    //     "portfolio_service",
+    //     "contact_me",
+    //     e.target,
+    //     "Evtmb-q7Qv4UDGjG-"
+    //   )
+    //   .then(
+    //     (result) => {
+    //       console.log(result.text);
+    //     },
+    //     (error) => {
+    //       console.log(error.text);
+    //     }
+    //   );
     e.target.reset();
   };
 
