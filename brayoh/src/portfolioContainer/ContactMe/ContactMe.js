@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import Typical from "react-typical";
-import { toast } from "react-toastify";
 import "./ContactMe.css";
 import imgBack from "../../../src/images/mailz.jpeg";
-import load1 from "../../../src/images/load2.gif";
 import ScreenHeading from "../../utilities/ScreenHeading/ScreenHeading";
 import ScrollService from "../../utilities/ScrollService";
 import Animations from "../../utilities/Animations";
@@ -18,74 +16,6 @@ function ContactMe(props) {
     fadeInScreenHandler
   );
 
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
-  const [banner, setBanner] = useState("");
-  const [boolean, setBoolean] = useState(false);
-
-  const handleName = (e) => {
-    setName(e.target.value);
-  };
-  const handleEmail = (e) => {
-    setEmail(e.target.value);
-  };
-  const handleMessage = (e) => {
-    setMessage(e.target.value);
-  };
-
-  const sendEmail = (e) => {
-    e.preventDefault();
-
-    // emailjs
-    //   .sendForm(
-    //     "portfolio_service",
-    //     "contact_me",
-    //     e.target,
-    //     "Evtmb-q7Qv4UDGjG-"
-    //   )
-    //   .then(
-    //     (result) => {
-    //       console.log(result.text);
-    //     },
-    //     (error) => {
-    //       console.log(error.text);
-    //     }
-    //   );
-    e.target.reset();
-  };
-
-  // const submitForm = async (e) => {
-  //   e.preventDefault();
-
-  //   try {
-  //     let data = {
-  //       name,
-  //       email,
-  //       message
-  //     };
-
-  //     setBoolean(true);
-  //     const res = await axios.post(`/contact`, data);
-  //     if(name.length === 0 || email.length === 0 || message.length === 0){
-  //       setBanner(res.data.msg);
-  //       toast.error(res.data.msg);
-  //       setBoolean(false);
-  //     }else if(res.status === 200){
-  //       setBanner(res.data.msg);
-  //       toast.success(res.data.msg);
-  //       setBoolean(false);
-
-  //       setName("")
-  //       setEmail("")
-  //       setMessage("")
-  //     }
-
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-
-  // }
   return (
     <div className="main-container fade-in" id={props.id || ""}>
       <ScreenHeading subHeading={"Lets Keep in Touch"} title={"Contact Me"} />

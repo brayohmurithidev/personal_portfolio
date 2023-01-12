@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./AboutMe.css";
 
 import ScreenHeading from "../../utilities/ScreenHeading/ScreenHeading";
@@ -12,8 +12,9 @@ function AboutMe(props) {
     Animations.animations.fadeInScreen(props.id);
   };
 
-  const fadeInSubscription =
-    ScrollService.currentScreenFadeIn.subscribe(fadeInScreenHandler);
+  const fadeInSubscription = ScrollService.currentScreenFadeIn.subscribe(
+    fadeInScreenHandler
+  );
 
   const SCREEN_CONSTANTS = {
     description:
